@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>RoleParser</id>
+    <version>__VERSION__</version>
+    <authors>luke</authors>
+    <owners>luke</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Parser for YML Role configuration.</description>
+    <releaseNotes> 
+        0.0.0.1 - Initial POC
+    </releaseNotes>
+    <copyright>Copyright 2017</copyright>
+    <tags>ConfigMgmt DevOps IaaS</tags>
+    <dependencies>
+      <dependency id="SampleDependency" version="1.0" />
+    </dependencies>
+  </metadata>
+</package>

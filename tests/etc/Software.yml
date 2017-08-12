@@ -1,0 +1,47 @@
+# Software Role
+
+# Server Software
+---
+- RoleName: ServerSoftware
+  Root: true
+  Where: "{ $_.Type -eq 'Server'}"
+
+  Profiles:
+  - Choco_Package_Server
+  - Choco_Package_Monitoring_Agent
+
+  Children:
+  - AppServerSoftware
+  - EnterpriseServerSoftware
+---
+- RoleName: AppServerSoftware
+  Where: "{ $_.Categroy -eq 'App'}"
+
+  Profiles:
+  - Choco_App_Package
+
+  Children:
+  - DevSoftware
+  - ProdSoftware
+---
+- RoleName: EnterpriseServerSoftware
+  Where: "{ $_.Categroy -eq 'Enterprise'}"
+
+  Profiles:
+  - Choco_Enterprise_Package
+
+  Children:
+  - DevSoftware
+  - ProdSoftware
+---
+- RoleName: DevSoftware
+  Where: "{ $_.Environment -eq 'Dev'}"
+  
+  Profiles:
+  - Choco_Dev_Lib
+---
+- RoleName: ProdSoftware
+  Where: "{ $_.Environment -eq 'Dev'}"
+  
+  Profiles:
+  - Choco_Prod_Lib
