@@ -9,8 +9,7 @@
 #>
 function GetRole {
     param(
-        [Parameter(DontShow=$true)]
-        [string] $etc = "$PSScriptRoot/etc",
+        [string] $etc,
         [string] $name
     )
 

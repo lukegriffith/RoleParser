@@ -95,6 +95,8 @@ Task Compile {
 	$FunctionstoExport = Get-ChildItem -Path "$SourcePath\Public" -Filter '*.ps1' | Select-Object -ExpandProperty BaseName
 	Write-Output "Updating Manifest FunctionsToExport: $FunctionstoExport"
 	Update-ModuleManifest -Path $NewManifestPath -FunctionsToExport $FunctionstoExport
+
+	Copy-Item $sourcePath\etc $moduleFolder -Recurse
 	
 	#Update nuspec
 	$NuspecPath = Join-Path -Path $ModuleFolder.FullName -ChildPath "$ModuleName.nuspec"
