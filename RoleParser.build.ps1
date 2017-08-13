@@ -11,7 +11,12 @@ else {
 	$OutputPath = "C:\Program Files\WindowsPowerShell\Modules"
 }
 
-Task BuildAndTest Init, {Clean}, Compile, Test
+Task . Init, {Clean}, Compile, Test
+
+Task BuildOnly Init, {Clean}, Compile
+Task TestOnly Test
+
+
 
 
 Function Clean {
@@ -118,5 +123,5 @@ task Test {
 	Write-Output "Starting tests."
 
 	Import-Module -Name $ModuleName -Force
-	Invoke-Pester 
+	Invoke-Pester -OutputXml ./Results.tests.xml
 }
