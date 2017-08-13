@@ -1,9 +1,5 @@
 <#
     .Synopsis
-
-
-
-
 #>
 function GetProfile {
 
@@ -18,7 +14,7 @@ function GetProfile {
     Process {
         foreach($m in $Machine) {
 
-            [boolean]$InRole = $m | Where-Object $Role.Where
+            $InRole = [bool]($m | Where-Object -FilterScript $Role.Where)
 
             if ($InRole) {
                 Write-Output $Role.Profiles

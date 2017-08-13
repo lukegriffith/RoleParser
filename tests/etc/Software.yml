@@ -41,7 +41,7 @@
   - Choco_Dev_Lib
 ---
 - RoleName: ProdSoftware
-  Where: "{ $_.Environment -eq 'Dev'}"
+  Where: "{ $_.Environment -eq 'Prod'}"
   
   Profiles:
   - Choco_Prod_Lib
