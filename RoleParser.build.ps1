@@ -114,16 +114,6 @@ Task Compile {
 
 
 task Test { 
-
-	pushd
-
-	set-location ./tests
-
-	ls 
-
 	Import-Module -Name $ModuleName -Force
-
 	Invoke-Pester 
-
-	popd
 }
