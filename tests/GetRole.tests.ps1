@@ -6,7 +6,7 @@ Describe "Private Function - GetRole" {
     $ymlFile = gc $psscriptroot/etc/Software.yml -raw
 
     It "test Yaml is valid." {
-        $obj = ConvertFrom-Yaml -Yaml $ymlFile -AllDocuments
+        {$obj = ConvertFrom-Yaml -Yaml $ymlFile -AllDocuments} | Should not throw
     }
 
     Context "Well formatted YAML." {
