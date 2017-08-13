@@ -11,23 +11,27 @@ function RecurseRole {
     param(
         $role,
         $yaml,
-        [role]$parent,
-        [System.Collections.Stack]$recursionStack
+        [role]$parent
     )
 
     $role_obj = [Role]::new($role)
 
-    if ($recursionStack.Contains($role_obj.RoleName)) {
-        # Role is used twie in the hierarchy, will result in an endless recursion.
-        $PSCmdlet.ThrowTerminatingError((New-Object System.Management.Automation.ErrorRecord(
-            (New-Object Exception "Role $($role_obj.RoleName) used twice."),
-            'CallDepthError',
-            [System.Management.Automation.ErrorCategory]::ResourceExists,
-            $role_obj
-        )))
-    }
+    $parent_ref = $parent
 
-    $recursionStack.push($role_obj.RoleName)
+    while ($parent_ref) {
+
+        if ($parent_ref.RoleName -eq $role_obj.RoleName) {
+            # Role is used twie in the hierarchy, will result in an endless recursion.
+            $PSCmdlet.ThrowTerminatingError((New-Object System.Management.Automation.ErrorRecord(
+                (New-Object Exception "Role $($role_obj.RoleName) used twice."),
+                'CallDepthError',
+                [System.Management.Automation.ErrorCategory]::ResourceExists,
+                $role_obj
+            )))
+        }
+
+        $parent_ref = $parent_ref.parent
+    }
 
     if ($PSBoundParameters.ContainsKey("parent")) {
         $role_obj.Parent = $parent
@@ -43,10 +47,7 @@ function RecurseRole {
             $child = $yaml | Where-Object {$_.RoleName -eq $child} 
         }
 
-        # You only want this hierarchy, not all.
-        $newRecursionStack = $recursionStack.Clone()
-
-        $role_obj.Children += RecurseRole $child $yaml $role_obj $newRecursionStack
+        $role_obj.Children += RecurseRole $child $yaml $role_obj 
     }
 
     Write-Output $role_obj
