@@ -111,6 +111,8 @@ Task Compile {
 
 task Test { 
 
+	Get-Module -ListAvailable
+
     Import-Module -Name $ModuleName -Force
 
     Invoke-Pester 
