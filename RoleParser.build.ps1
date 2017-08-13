@@ -114,6 +114,9 @@ Task Compile {
 
 
 task Test { 
+	$Seperator
+	Write-Output "Starting tests."
+
 	Import-Module -Name $ModuleName -Force
 	Invoke-Pester 
 }
