@@ -115,9 +115,9 @@ Task Compile {
 
 task Test { 
 
-	Get-Module -ListAvailable
+	ls C:\Users\appveyor\Documents\WindowsPowerShell\Modules
 
-    Import-Module -Name $ModuleName -Force
+	Import-Module -Name $ModuleName -Force
 
-    Invoke-Pester 
+	Invoke-Pester 
 }
