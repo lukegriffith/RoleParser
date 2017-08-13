@@ -3,9 +3,13 @@ $ModuleName = 'RoleParser'
 $Seperator = '------------------------------------------'
 $RequiredModules = @('Pester', 'PSScriptAnalyzer','powershell-yaml')
 $SourcePath = "$PSScriptRoot\$ModuleName"
-$OutputPath = "/Users/$env:USER/.local/share/powershell/Modules"
 
-#$OutputPath = "$env:ProgramFiles\WindowsPowerShell\Modules"
+if ($IsOSX) {
+	$OutputPath = "/Users/$env:USER/.local/share/powershell/Modules"
+}
+else {
+	$OutputPath = "C:\Users\$env:USER\Documents\WindowsPowerShell\Modules"
+}
 
 Task BuildAndTest Init, {Clean}, Compile, Test
 
