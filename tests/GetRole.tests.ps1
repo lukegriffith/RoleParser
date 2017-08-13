@@ -3,13 +3,15 @@
 
 Describe "Private Function - GetRole" { 
 
-    $ymlFile = gc $psscriptroot/etc/Software.yml -raw
-
-    It "test Yaml is valid." {
-        {$obj = ConvertFrom-Yaml -Yaml $ymlFile -AllDocuments} | Should not throw
-    }
 
     Context "Well formatted YAML." {
+
+        $ymlFile = gc $psscriptroot/etc/Software.yml -raw
+        
+        It "test Yaml is valid." {
+            { $obj = ConvertFrom-Yaml -Yaml $ymlFile -AllDocuments } | Should not throw
+        }
+        
 
         InModuleScope -ModuleName RoleParser -ScriptBlock {
 
@@ -32,7 +34,12 @@ Describe "Private Function - GetRole" {
     }
 
     Context "Poor formatted YAML." {
+        
+        $ymlFile = gc $psscriptroot/etc/SoftwareBad.yml -raw
 
+        It "test Yaml is valid." {
+            {$obj = ConvertFrom-Yaml -Yaml $ymlFile -AllDocuments} | Should not throw
+        }
 
         InModuleScope -ModuleName RoleParser -ScriptBlock { 
 
