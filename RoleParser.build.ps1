@@ -123,5 +123,5 @@ task Test {
 	Write-Output "Starting tests."
 
 	Import-Module -Name $ModuleName -Force
-	Invoke-Pester -OutputXml ./Results.tests.xml
+	Invoke-Pester  -OutputFormat NUnitXml -OutputFile  ./TestOutput.xml
 }
