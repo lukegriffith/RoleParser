@@ -2,7 +2,7 @@
 
 function GetProfile {
     Param(
-        [String]$etc
+        [String]$etc,
         [Machine]$Machine
     )
 }
