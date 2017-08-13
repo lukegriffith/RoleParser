@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<test-results xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="nunit_schema_2.5.xsd" name="Pester" total="5" errors="0" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2017-08-13" time="11:02:31">
+  <environment machine-name="" nunit-version="2.5.8.0" user-domain="" cwd="/Users/luke/GitHub/RoleParser" clr-version="" user="" />
+  <culture-info current-culture="en-GB" current-uiculture="en-GB" />
+  <test-suite type="Powershell" name="Pester" executed="True" result="Success" success="True" time="1.4476" asserts="0">
+    <results>
+      <test-suite type="TestFixture" name="Private Function - GetRole" executed="True" result="Success" success="True" time="1.4476" asserts="0" description="Private Function - GetRole">
+        <results>
+          <test-case description="test Yaml is valid." name="Private Function - GetRole..test Yaml is valid." time="0.7364" asserts="0" success="True" result="Success" executed="True" />
+          <test-case description="GetRole gets the role structure." name="Private Function - GetRole.Well formatted YAML..GetRole gets the role structure." time="0.4024" asserts="0" success="True" result="Success" executed="True" />
+          <test-case description="Role is root." name="Private Function - GetRole.Well formatted YAML..Role is root." time="0.0235" asserts="0" success="True" result="Success" executed="True" />
+          <test-case description="Role has children." name="Private Function - GetRole.Well formatted YAML..Role has children." time="0.0199" asserts="0" success="True" result="Success" executed="True" />
+          <test-case description="Should terminate due to recursed role." name="Private Function - GetRole.Poor formatted YAML..Should terminate due to recursed role." time="0.2653" asserts="0" success="True" result="Success" executed="True" />
+        </results>
+      </test-suite>
+    </results>
+  </test-suite>
+</test-results>
