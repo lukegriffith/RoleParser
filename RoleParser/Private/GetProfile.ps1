@@ -1,6 +1,6 @@
 <#
     .Synopsis
-    
+
 
 
 
@@ -18,11 +18,13 @@ function GetProfile {
     Process {
         foreach($m in $Machine) {
 
-            if ($m | Where-Object $Role.Where) {
+            [boolean]$InRole = $m | Where-Object $Role.Where
+
+            if ($InRole) {
                 Write-Output $Role.Profiles
             }
 
-            if ($Recurse.IsPresent) {
+            if ($Recurse.IsPresent -and $InRole) {
                 $childCount = $role.Children.count
 
                 for ($i = 0; $i -lt $childCount; $i++) {

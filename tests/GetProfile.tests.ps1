@@ -28,7 +28,7 @@ Describe "Private Function - GetProfile" {
             $profiles = $sb.Invoke()
 
             it "Contains expected profiles" {
-                $expectedProfiles | should be $profiles
+                $profiles | should be $expectedProfiles
             }
 
         }
