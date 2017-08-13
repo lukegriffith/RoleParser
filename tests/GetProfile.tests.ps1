@@ -6,14 +6,14 @@ Describe "Private Function - GetProfile" {
 
         Context "Machine returns correct" {
 
-            $m = [Machine]::new(@{
+            $m = [Machine]@{
                 Name = "host1"
                 Type = "Server"
                 Category = "App"
                 Environment = "Dev"
                 User = "user1"
                 Owner = "systems_team"
-            })
+            }
 
             $expectedProfiles = @("Choco_Package_Server","Choco_Package_Monitoring_Agent", "Choco_App_Package", "Choco_Dev_Lib")
 
