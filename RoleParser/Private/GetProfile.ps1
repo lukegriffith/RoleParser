@@ -2,6 +2,6 @@
 
 function GetProfile {
     Param(
-        [Machine]$Machine,
+        [Machine]$Machine
     )
 }

@@ -13,6 +13,8 @@ function GetRole {
         [string] $name
     )
 
+    $recursionStack = [System.Collections.Stack]::new()
+
     $yaml_raw = Get-Content "$etc/$name.yml" -raw
 
     $yaml = ConvertFrom-Yaml -Yaml $yaml_raw -AllDocuments
@@ -20,7 +22,7 @@ function GetRole {
 
     $root = $yaml | Where-Object {$_.Root}
 
-    RecurseRole $root $yaml
+    RecurseRole $root $yaml -recursionStack $recursionStack
 
 
 }
