@@ -8,7 +8,7 @@ if ($IsOSX) {
 	$OutputPath = "/Users/$env:USER/.local/share/powershell/Modules"
 }
 else {
-	$OutputPath = "C:\Users\$env:USER\Documents\WindowsPowerShell\Modules"
+	$OutputPath = "C:\Program Files\WindowsPowerShell\Modules"
 }
 
 Task BuildAndTest Init, {Clean}, Compile, Test
