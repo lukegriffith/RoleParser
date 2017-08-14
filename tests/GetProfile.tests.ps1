@@ -1,3 +1,4 @@
+using module RoleParser
 
 Describe "Private Function - GetProfile" { 
 
@@ -31,6 +32,23 @@ Describe "Private Function - GetProfile" {
                 $profiles | should be $expectedProfiles
             }
 
+            mock Where-Object -MockWith {
+                return $InputObject
+            }
+
+            $r = [Role]@{
+                RoleName = "Apps"
+                Root = $true
+                Where = {$_.Owner -eq 'systems_team'}
+                Profiles = @("app1", "app2")
+            }
+
+            it "Returns profiles where role is true" {
+
+
+                $m | GetProfile -Role = $r | Should be @("app1","app2")
+
+            }
         }
 
 
