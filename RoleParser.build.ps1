@@ -123,5 +123,7 @@ task Test {
 	Write-Output "Starting tests."
 
 	Import-Module -Name $ModuleName -Force
+	Get-Module -Name $ModuleName -ListAvailable
+
 	Invoke-Pester  -OutputFormat NUnitXml -OutputFile  ./nunit.xml
 }
