@@ -18,7 +18,7 @@ Describe "Private Function - GetProfile" {
 
             $role = GetRole -etc $psscriptroot/etc -name Software
 
-            $sb = { $m | GetProfile  -Role $role -Recurse}
+            $sb = { $m | GetProfile -etc $psscriptroot/etc  -Role $role -Recurse}
 
             it "GetProfile - does not throw" {
                 $sb | should not throw
