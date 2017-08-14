@@ -46,7 +46,7 @@
             "request": "launch",
             "name": "Invoke-Build Default Task",
             "script": "Invoke-Build",
-            "args": [".", "${file}"],
+            "args": ["."],
             "cwd": "${workspaceRoot}"
         }
     ]

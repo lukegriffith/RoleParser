@@ -42,7 +42,7 @@ Describe "Private Function - GetProfile" {
             it "Returns profiles where role filter true" {
 
 
-                $m | GetProfile -Role $r | Should be @("app1","app2")
+                $m | GetProfile -etc $psscriptroot/etc  -Role $r | Should be @("app1","app2")
 
             }
 
@@ -50,7 +50,7 @@ Describe "Private Function - GetProfile" {
             mock Where-Object -MockWith {}
 
             it "Returns no profiles where role filter false" {
-                $m | GetProfile -Role $r | Should be $null
+                $m | GetProfile -etc $psscriptroot/etc -Role $r | Should be $null
 
             }
         }

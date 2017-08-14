@@ -4,7 +4,7 @@
 ---
 - RoleName: ServerSoftware
   Root: true
-  Where: "{ $_.Type -eq 'Server'}"
+  Filter: "{ $_.Type -eq 'Server'}"
 
   Profiles:
   - Choco_Package_Server
@@ -15,7 +15,7 @@
   - EnterpriseServerSoftware
 ---
 - RoleName: AppServerSoftware
-  Where: "{ $_.Categroy -eq 'App'}"
+  Filter: "{ $_.Categroy -eq 'App'}"
 
   Profiles:
   - Choco_App_Package
@@ -25,7 +25,7 @@
   - ProdSoftware
 ---
 - RoleName: EnterpriseServerSoftware
-  Where: "{ $_.Categroy -eq 'Enterprise'}"
+  Filter: "{ $_.Categroy -eq 'Enterprise'}"
 
   Profiles:
   - Choco_Enterprise_Package
@@ -35,13 +35,13 @@
   - ProdSoftware
 ---
 - RoleName: DevSoftware
-  Where: "{ $_.Environment -eq 'Dev'}"
+  Filter: "{ $_.Environment -eq 'Dev'}"
   
   Profiles:
   - Choco_Dev_Lib
 ---
 - RoleName: ProdSoftware
-  Where: "{ $_.Environment -eq 'Prod'}"
+  Filter: "{ $_.Environment -eq 'Prod'}"
   
   Profiles:
   - Choco_Prod_Lib
