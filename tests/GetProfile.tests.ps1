@@ -3,7 +3,7 @@ Describe "Private Function - GetProfile" {
 
     InModuleScope -ModuleName RoleParser -ScriptBlock {
 
-        Context "Machine returns expected profiles" {
+        Context "ReturnsProfiles" {
 
             $m = [Machine]@{
                 Name = "host1"
@@ -18,11 +18,11 @@ Describe "Private Function - GetProfile" {
 
             $role = GetRole -etc $psscriptroot/etc -name Software
 
-            it "GetProfile - does not throw" {
+            it "DoesNotThrow" {
                 {$m | GetProfile -etc $psscriptroot/etc  -Role $role -Recurse} | should not throw
             }
 
-            it "Contains expected profiles" {
+            it "ContainsExpectedProfiles" {
                 $pros = ($m | GetProfile -etc $psscriptroot/etc  -Role $role -Recurse | sort ) -join ","
                 
                 $pros | should be $expectedProfiles
@@ -41,7 +41,7 @@ Describe "Private Function - GetProfile" {
                 Parent = $null
             })
 
-            it "Returns profiles where role filter true" {
+            it "ReturnsProfilesWhenTrue" {
 
                 $exp = "app1,app2"
 
@@ -54,7 +54,7 @@ Describe "Private Function - GetProfile" {
 
             mock Where-Object -MockWith {}
 
-            it "Returns no profiles where role filter false" {
+            it "ReturnsNoProfilesWhenFalse" {
                 $m | GetProfile -etc $psscriptroot/etc -Role $r | Should be $null
 
             }
