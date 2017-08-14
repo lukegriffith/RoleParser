@@ -1,4 +1,4 @@
-Describe "Private Function - GetProfile" { 
+Describe "Private.GetProfile" { 
 
 
     InModuleScope -ModuleName RoleParser -ScriptBlock {

@@ -1,7 +1,7 @@
 
 
 
-Describe "Private Function - GetRole" { 
+Describe "Private.GetRole" { 
 
 
     Context "WellFormattedYAML." {
