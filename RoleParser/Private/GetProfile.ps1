@@ -14,7 +14,7 @@ function GetProfile {
     Process {
         foreach($m in $Machine) {
 
-            $InRole = [bool]($m | Where-Object -FilterScript $Role.Where)
+            $InRole = [bool]($m | Where-Object -FilterScript $Role.Filter)
 
             if ($InRole) {
                 Write-Output $Role.Profiles

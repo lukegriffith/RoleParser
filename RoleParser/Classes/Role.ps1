@@ -3,7 +3,7 @@
 class Role { 
     [String]$RoleName
     [bool]$Root
-    [ScriptBlock] $Where
+    [ScriptBlock] $Filter
     [String[]]$Profiles
     [Role[]]$Children 
     [Role]$Parent
@@ -14,7 +14,7 @@ class Role {
 
         $this.RoleName = $raw_role.RoleName
         $this.Root = $raw_role.Root
-        $this.Where = [scriptblock]::Create($raw_role.Where)
+        $this.Filter = [scriptblock]::Create($raw_role.Filter)
         $this.Profiles = $raw_role.Profiles
     }
 }

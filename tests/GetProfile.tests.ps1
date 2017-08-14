@@ -37,7 +37,7 @@ Describe "Private Function - GetProfile" {
             $r = [Role]@{
                 RoleName = "Apps"
                 Root = $true
-                Where = {$_.Owner -eq 'systems_team'}
+                Filter = {$_.Owner -eq 'systems_team'}
                 Profiles = @("app1", "app2")
                 Children = @()
                 Parent = $null
