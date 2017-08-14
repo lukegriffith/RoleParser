@@ -123,9 +123,9 @@ task Test {
 	Write-Output "Starting tests."
 
 	Import-Module -Name $ModuleName -Force
-	Get-Module -Name $ModuleName -ListAvailable | select name, version, ModuleBase
+	#Get-Module -Name $ModuleName -ListAvailable | select name, version, ModuleBase
 
-	gci 'C:\Program Files\WindowsPowerShell\Modules\'
+	gci 'C:\Program Files\WindowsPowerShell\Modules\' -Recurse -Depth 2
 
 	Invoke-Pester  -OutputFormat NUnitXml -OutputFile  ./nunit.xml
 }
