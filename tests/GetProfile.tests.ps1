@@ -3,7 +3,7 @@ Describe "Private Function - GetProfile" {
 
     InModuleScope -ModuleName RoleParser -ScriptBlock {
 
-        Context "Machine returns correct" {
+        Context "Machine returns expected profiles" {
 
             $m = [Machine]@{
                 Name = "host1"
