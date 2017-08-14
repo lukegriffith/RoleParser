@@ -14,7 +14,7 @@ else {
 Task . Init, {Clean}, Compile, Test
 
 Task BuildOnly Init, {Clean}, Compile
-Task Test  Init, {Clean}, Compile, Test
+Task Test  Init, Test
 
 
 
