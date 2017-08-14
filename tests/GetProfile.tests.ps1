@@ -18,16 +18,12 @@ Describe "Private Function - GetProfile" {
 
             $role = GetRole -etc $psscriptroot/etc -name Software
 
-            $sb = { $m | GetProfile -etc $psscriptroot/etc  -Role $role -Recurse}
-
             it "GetProfile - does not throw" {
-                $sb | should not throw
+                {$m | GetProfile -etc $psscriptroot/etc  -Role $role -Recurse} | should not throw
             }
 
-            $profiles = $sb.Invoke()
-
             it "Contains expected profiles" {
-                $profiles | should be $expectedProfiles
+                $m | GetProfile -etc $psscriptroot/etc  -Role $role -Recurse| should be $expectedProfiles
             }
 
             mock Where-Object -MockWith {
