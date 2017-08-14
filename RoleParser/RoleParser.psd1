@@ -9,7 +9,7 @@
 @{
 
 # Script module or binary module file associated with this manifest.
-RootModule = 'RoleParser.psm1'
+RootModule = 'RoleParser'
 
 # Version number of this module.
 ModuleVersion = '0.2.0'
