@@ -1,4 +1,4 @@
-using module RoleParser
+using module @{ModuleName="RoleParser";ModuleVersion="0.1.0"}
 
 Describe "Private Function - GetProfile" { 
 
@@ -41,6 +41,8 @@ Describe "Private Function - GetProfile" {
                 Root = $true
                 Where = {$_.Owner -eq 'systems_team'}
                 Profiles = @("app1", "app2")
+                Children = @()
+                Parent = $null
             }
 
             it "Returns profiles where role is true" {

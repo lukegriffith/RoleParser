@@ -8,6 +8,8 @@ class Role {
     [Role[]]$Children 
     [Role]$Parent
 
+
+
     Role([PSObject]$raw_role) {
 
         $this.RoleName = $raw_role.RoleName
