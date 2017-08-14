@@ -1,4 +1,5 @@
-using module RoleParser
+using module "C:\Program Files\WindowsPowerShell\Modules\RoleParser\0.2.0
+\RoleParser.psm1"
 
 Describe "Private Function - GetProfile" { 
 
