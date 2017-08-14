@@ -34,14 +34,14 @@ Describe "Private Function - GetProfile" {
                 return $InputObject
             }
 
-            $r = [Role]@{
+            $r = [Role]::new(@{
                 RoleName = "Apps"
                 Root = $true
                 Filter = {$_.Owner -eq 'systems_team'}
                 Profiles = @("app1", "app2")
                 Children = @()
                 Parent = $null
-            }
+            })
 
             it "Returns profiles where role is true" {
 
