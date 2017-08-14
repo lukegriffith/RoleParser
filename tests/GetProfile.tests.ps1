@@ -14,7 +14,7 @@ Describe "Private Function - GetProfile" {
                 Owner = "systems_team"
             }
 
-            $expectedProfiles = @("Choco_Package_Server","Choco_Package_Monitoring_Agent", "Choco_App_Package", "Choco_Dev_Lib")
+            $expectedProfiles = @(("Choco_Package_Server","Choco_Package_Monitoring_Agent", "Choco_App_Package", "Choco_Dev_Lib") | sort ) -join ","
 
             $role = GetRole -etc $psscriptroot/etc -name Software
 
@@ -23,7 +23,9 @@ Describe "Private Function - GetProfile" {
             }
 
             it "Contains expected profiles" {
-                $m | GetProfile -etc $psscriptroot/etc  -Role $role -Recurse| should be $expectedProfiles
+                $pros = ($m | GetProfile -etc $psscriptroot/etc  -Role $role -Recurse | sort ) -join ","
+                
+                $pros | should be $expectedProfiles
             }
 
             mock Where-Object -MockWith {
@@ -41,8 +43,11 @@ Describe "Private Function - GetProfile" {
 
             it "Returns profiles where role filter true" {
 
+                $exp = "app1,app2"
 
-                $m | GetProfile -etc $psscriptroot/etc  -Role $r | Should be @("app1","app2")
+                $pros = ($m | GetProfile -etc $psscriptroot/etc  -Role $r) -join ","
+
+                $pros | Should be $exp
 
             }
 
