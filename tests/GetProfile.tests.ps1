@@ -60,11 +60,5 @@ Describe "Private Function - GetProfile" {
             }
         }
 
-
-
-
-
-
-
     }
 }

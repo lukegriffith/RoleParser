@@ -15,7 +15,7 @@
   - EnterpriseServerSoftware
 ---
 - RoleName: AppServerSoftware
-  Filter: " $_.Categroy -eq 'App'"
+  Filter: " $_.Category -eq 'App'"
 
   Profiles:
   - Choco_App_Package
@@ -25,7 +25,7 @@
   - ProdSoftware
 ---
 - RoleName: EnterpriseServerSoftware
-  Filter: " $_.Categroy -eq 'Enterprise'"
+  Filter: " $_.Category -eq 'Enterprise'"
 
   Profiles:
   - Choco_Enterprise_Package
