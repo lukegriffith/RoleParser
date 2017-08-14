@@ -4,11 +4,11 @@
 Describe "Private.GetRole" { 
 
 
-    Context "WellFormattedYAML." {
+    Context "WellFormattedYAML" {
 
         $ymlFile = gc $psscriptroot/etc/Software.yml -raw
         
-        It "YAMLIsValid." {
+        It "YAMLIsValid" {
             { $obj = ConvertFrom-Yaml -Yaml $ymlFile -AllDocuments } | Should not throw
         }
         
@@ -33,7 +33,7 @@ Describe "Private.GetRole" {
 
     }
 
-    Context "PoorFormattedYAML." {
+    Context "PoorFormattedYAML" {
         
         $ymlFile = gc $psscriptroot/etc/SoftwareBad.yml -raw
 
