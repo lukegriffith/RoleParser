@@ -1,4 +1,4 @@
-using module @{ModuleName="RoleParser";ModuleVersion="0.1.0"}
+using module RoleParser
 
 Describe "Private Function - GetProfile" { 
 
