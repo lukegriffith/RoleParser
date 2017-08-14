@@ -125,5 +125,7 @@ task Test {
 	Import-Module -Name $ModuleName -Force
 	Get-Module -Name $ModuleName -ListAvailable | select name, version, ModuleBase
 
+	gci 'C:\Program Files\WindowsPowerShell\Modules\'
+
 	Invoke-Pester  -OutputFormat NUnitXml -OutputFile  ./nunit.xml
 }
