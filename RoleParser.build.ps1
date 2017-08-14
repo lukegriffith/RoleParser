@@ -14,7 +14,7 @@ else {
 Task . Init, {Clean}, Compile, Test
 
 Task BuildOnly Init, {Clean}, Compile
-Task TestOnly Test
+Task TestOnly {Clean}, Compile, Test
 
 
 
@@ -108,7 +108,7 @@ Task Compile {
 	Copy-Item $sourcePath\etc $moduleFolder -Recurse
 	
 	#Update nuspec
-	$NuspecPath = Join-Path -Path $ModuleFolder.FullName -ChildPath "$ModuleName.nuspec"
+	$NuspecPath = Join-Path -Path $ModuleFolder.FullName -Chi	ldPath "$ModuleName.nuspec"
 	(Get-Content -Path $NuspecPath) -replace "<version>__VERSION__</version>","<version>$Script:Version</version>" | Set-Content -Path $NuspecPath
 }
 
