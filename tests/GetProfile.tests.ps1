@@ -1,6 +1,3 @@
-using module "C:\Program Files\WindowsPowerShell\Modules\RoleParser\0.2.0
-\RoleParser.psm1"
-
 Describe "Private Function - GetProfile" { 
 
 
@@ -49,7 +46,7 @@ Describe "Private Function - GetProfile" {
             it "Returns profiles where role is true" {
 
 
-                $m | GetProfile -Role = $r | Should be @("app1","app2")
+                $m | GetProfile -Role $r | Should be @("app1","app2")
 
             }
         }
