@@ -108,7 +108,7 @@ Task Compile {
 	Copy-Item $sourcePath\etc $moduleFolder -Recurse
 	
 	#Update nuspec
-	$NuspecPath = Join-Path -Path $ModuleFolder.FullName -Chi	ldPath "$ModuleName.nuspec"
+	$NuspecPath = Join-Path -Path $ModuleFolder.FullName -ChildPath "$ModuleName.nuspec"
 	(Get-Content -Path $NuspecPath) -replace "<version>__VERSION__</version>","<version>$Script:Version</version>" | Set-Content -Path $NuspecPath
 }
 
